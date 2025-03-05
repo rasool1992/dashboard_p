@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D8CFF',
+                        secondary: '#4CAF50',
+                        accent: '#FF6B6B',
+                        dark: '#2D3748',
+                        light: '#F8FBFF',
+                        warning: '#FFD166',
+                        mint: '#06D6A0',
+                        teal: '#118AB2',
+                        gray: {
+                            light: '#F7FAFC',
+                            medium: '#E2E8F0',
+                            text: '#718096',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-light">
+    <div class="flex h-screen">
+        <!-- Sidebar Navigation -->
+        <div class="w-64 bg-white shadow-md">
+            <div class="p-4">
+                <h1 class="text-2xl font-bold text-dark flex items-center">
+                    <i class="fas fa-clinic-medical text-primary mr-2"></i>
+                    PharmaSys
+                </h1>
+            </div>
+            <nav class="mt-6">
+                <a href="#" class="flex items-center px-4 py-3 bg-light text-primary border-l-4 border-primary">
+                    <i class="fas fa-tachometer-alt mr-3"></i>
+                    Dashboard
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-text hover:bg-light hover:text-primary">
+                    <i class="fas fa-prescription-bottle-alt mr-3"></i>
+                    Inventory
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-text hover:bg-light hover:text-primary">
+                    <i class="fas fa-users mr-3"></i>
+                    Patients
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-text hover:bg-light hover:text-primary">
+                    <i class="fas fa-file-prescription mr-3"></i>
+                    Prescriptions
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-text hover:bg-light hover:text-primary">
+                    <i class="fas fa-chart-bar mr-3"></i>
+                    Reports
+                </a>
+                <a href="#" class="flex items-center px-4 py-3 text-gray-text hover:bg-light hover:text-primary">
+                    <i class="fas fa-cog mr-3"></i>
+                    Settings
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Top Bar -->
+            <div class="bg-white p-4 shadow-sm flex justify-between items-center">
+                <h2 class="text-xl font-semibold text-dark">Dashboard Overview</h2>
+                <div class="flex items-center">
+                    <div class="relative mr-4">
+                        <input type="text" placeholder="Search..." class="pl-10 pr-4 py-2 rounded-lg border border-gray-medium focus:outline-none focus:border-primary">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-text"></i>
+                    </div>
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="p-6">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    <!-- Total Sales Card -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-gray-text text-sm">Total Sales</p>
+                                <h3 class="text-2xl font-bold text-dark mt-1">$12,426</h3>
+                                <p class="text-secondary text-sm mt-2">
+                                    <i class="fas fa-arrow-up mr-1"></i>
+                                    8.2% from last month
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-light flex items-center justify-center">
+                                <i class="fas fa-dollar-sign text-primary text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prescriptions Card -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-gray-text text-sm">Prescriptions</p>
+                                <h3 class="text-2xl font-bold text-dark mt-1">284</h3>
+                                <p class="text-secondary text-sm mt-2">
+                                    <i class="fas fa-arrow-up mr-1"></i>
+                                    4.5% from last month
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-light flex items-center justify-center">
+                                <i class="fas fa-file-prescription text-primary text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Patients Card -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-gray-text text-sm">Patients</p>
+                                <h3 class="text-2xl font-bold text-dark mt-1">1,432</h3>
+                                <p class="text-secondary text-sm mt-2">
+                                    <i class="fas fa-arrow-up mr-1"></i>
+                                    12.1% from last month
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-light flex items-center justify-center">
+                                <i class="fas fa-users text-primary text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inventory Card -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-gray-text text-sm">Low Stock Items</p>
+                                <h3 class="text-2xl font-bold text-dark mt-1">24</h3>
+                                <p class="text-accent text-sm mt-2">
+                                    <i class="fas fa-arrow-up mr-1"></i>
+                                    3 more than last week
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-light flex items-center justify-center">
+                                <i class="fas fa-exclamation-triangle text-accent text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <!-- Sales Chart -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-dark mb-4">Monthly Sales</h3>
+                        <div class="h-64">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Top Medications -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-dark mb-4">Top Selling Medications</h3>
+                        <div class="h-64">
+                            <canvas id="medicationsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Prescriptions -->
+                <div class="bg-white rounded-lg shadow mb-6">
+                    <div class="p-6 border-b border-gray-medium">
+                        <h3 class="text-lg font-semibold text-dark">Recent Prescriptions</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-light">
+                                    <th class="py-3 px-4 text-left text-dark">Patient</th>
+                                    <th class="py-3 px-4 text-left text-dark">Prescription ID</th>
+                                    <th class="py-3 px-4 text-left text-dark">Medication</th>
+                                    <th class="py-3 px-4 text-left text-dark">Date</th>
+                                    <th class="py-3 px-4 text-left text-dark">Status</th>
+                                    <th class="py-3 px-4 text-left text-dark">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-medium">
+                                    <td class="py-3 px-4">John Smith</td>
+                                    <td class="py-3 px-4">RX-2023-001</td>
+                                    <td class="py-3 px-4">Amoxicillin 500mg</td>
+                                    <td class="py-3 px-4">Oct 12, 2023</td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-secondary bg-opacity-20 text-secondary rounded-full text-xs">Completed</span></td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-primary hover:text-blue-700"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-medium">
+                                    <td class="py-3 px-4">Sarah Johnson</td>
+                                    <td class="py-3 px-4">RX-2023-002</td>
+                                    <td class="py-3 px-4">Lisinopril 10mg</td>
+                                    <td class="py-3 px-4">Oct 11, 2023</td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-warning bg-opacity-20 text-warning rounded-full text-xs">Pending</span></td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-primary hover:text-blue-700 mr-2"><i class="fas fa-eye"></i></button>
+                                        <button class="text-secondary hover:text-green-700"><i class="fas fa-check"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-medium">
+                                    <td class="py-3 px-4">Michael Brown</td>
+                                    <td class="py-3 px-4">RX-2023-003</td>
+                                    <td class="py-3 px-4">Metformin 500mg</td>
+                                    <td class="py-3 px-4">Oct 10, 2023</td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-accent bg-opacity-20 text-accent rounded-full text-xs">Urgent</span></td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-primary hover:text-blue-700 mr-2"><i class="fas fa-eye"></i></button>
+                                        <button class="text-secondary hover:text-green-700"><i class="fas fa-check"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4">Emily Davis</td>
+                                    <td class="py-3 px-4">RX-2023-004</td>
+                                    <td class="py-3 px-4">Atorvastatin 20mg</td>
+                                    <td class="py-3 px-4">Oct 9, 2023</td>
+                                    <td class="py-3 px-4"><span class="px-2 py-1 bg-secondary bg-opacity-20 text-secondary rounded-full text-xs">Completed</span></td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-primary hover:text-blue-700"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-4 flex justify-center">
+                        <button class="text-primary hover:text-blue-700 flex items-center">
+                            View All Prescriptions
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
